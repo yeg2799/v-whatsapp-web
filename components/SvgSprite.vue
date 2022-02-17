@@ -11,7 +11,7 @@ export default {
 };
 </script>
 <style scoped>
-  .icon {
+  /* .icon {
     display: inline-block;
     width: 1em;
     height: 1em;
@@ -21,5 +21,5 @@ export default {
     object-fit: contain;
     pointer-events: none;
     user-select: none;
-  }
+  } */
 </style>

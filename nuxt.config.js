@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'v-audio-player',
+    title: 'Whatsapp',
     htmlAttrs: {
       lang: 'en'
     },
@@ -12,7 +12,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/whatsapp.ico' }
     ]
   },
 
@@ -34,11 +34,13 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
     '@nuxtjs/svg',
+    '@nuxt/image',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/svg-sprite'
+    '@nuxtjs/svg-sprite',
+    '@nuxt/image',
   ],
   svgSprite: {
     input: '~/assets/icons/',
@@ -46,5 +48,19 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+
+  image: {
+    domains: ['nuxtjs.org'],
+    dir: 'assets/images',
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'jpg',
+          width: 40,
+          height: 40
+        }
+      }
+    }
+  },
 }
