@@ -30,9 +30,8 @@ export default {
       .notification-icon {
         color: #53BDEB;
         display: inline-block;
+      }
     }
-    }
-
     .right-notification-content{
       display: flex;
       flex-direction: column;

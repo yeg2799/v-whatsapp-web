@@ -7,14 +7,31 @@
 </template>
 
 <script>
-import { ref } from '@nuxtjs/composition-api';
+import { onMounted, ref, useContext, watch, onUnmounted } from '@nuxtjs/composition-api';
 import WpSidebar from '@/components/Sidebar/wp-sidebar.vue';
 export default {
   components: {
     WpSidebar
   },
-  setup() {
+  setup(props, context) {
     const data = ref('emre');
+    const height = ref(0);
+    const handleResize = () => {
+      const sidebarHeader = document.getElementsByClassName('header')[0];
+      const sidebarNotification = document.getElementsByClassName('sidebar-notification')[0];
+      const sidebarSearch = document.getElementsByClassName('sidebar-search')[0];
+      const sumHeight = sidebarHeader.clientHeight + sidebarNotification.clientHeight + sidebarSearch.clientHeight;
+
+      height.value = window.innerHeight - sumHeight;
+      const personList = document.getElementsByClassName('sidebar-person-list')[0];
+      personList.style.maxHeight = `${height.value}px`;
+    };
+    onMounted(() => {
+       window.addEventListener('resize', handleResize);
+    });
+    onUnmounted(() => {
+      window.removeEventListener('resize', handleResize);
+    });
     return {
       data
     }
@@ -59,6 +76,8 @@ export default {
 .layout {
   display: flex;
   width: 100%;
+  color: #fff;
+  overflow-y: hidden;
   .left-content {
     width: 30%;
     border-right: 1px solid #e6e6e6;
