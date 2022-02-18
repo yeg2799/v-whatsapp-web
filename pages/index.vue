@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { onMounted, ref, useContext, watch, onUnmounted, onBeforeMount } from '@nuxtjs/composition-api';
+import { onMounted, ref, onUnmounted } from '@nuxtjs/composition-api';
 import WpContentHeader from '@/components/Content/wp-content-header.vue';
 import WpContent from '@/components/Content/wp-content.vue';
 import WpContentSendMessage from '@/components/Content/wp-content-send-message.vue';
@@ -22,7 +22,6 @@ export default {
     const contentBodyHeight = ref(0);
 
     const handleResize = () => {
-      console.log('resize');
       const sidebarHeader = document.getElementsByClassName('header')[0];
       const sidebarNotification = document.getElementsByClassName('sidebar-notification')[0];
       const sidebarSearch = document.getElementsByClassName('sidebar-search')[0];

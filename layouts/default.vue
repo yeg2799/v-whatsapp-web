@@ -7,47 +7,11 @@
 </template>
 
 <script>
-import { onMounted, ref, useContext, watch, onUnmounted, onBeforeMount } from '@nuxtjs/composition-api';
 import WpSidebar from '@/components/Sidebar/wp-sidebar.vue';
 export default {
   components: {
     WpSidebar
   },
-  setup(props, context) {
-    const data = ref('emre');
-    const heigt = ref(0);
-    const contentBodyHeight = ref(0);
-
-    const handleResize = () => {
-      console.log('resize');
-      const sidebarHeader = document.getElementsByClassName('header')[0];
-      const sidebarNotification = document.getElementsByClassName('sidebar-notification')[0];
-      const sidebarSearch = document.getElementsByClassName('sidebar-search')[0];
-      const personList = document.getElementsByClassName('sidebar-person-list')[0];
-      const sumHeight = sidebarHeader.clientHeight + sidebarNotification.clientHeight + sidebarSearch.clientHeight;
-
-      heigt.value = window.innerHeight - sumHeight;
-
-      // const contentHeader = document.getElementsByClassName('content-header')[0];
-      // const contentBody = document.getElementsByClassName('content-body')[0];
-      // const contentSendMessage = document.getElementsByClassName('content-send-message')[0];
-      // const heigt = contentHeader.clientHeight + contentSendMessage.clientHeight;
-      // contentBodyHeight.value = window.innerHeight - heigt;
-
-      personList.style.maxHeight = `${heigt.value}px`;
-      // contentBody.style.maxHeight = `${contentBodyHeight.value}px`;
-      // contentBody.style.height = `${contentBodyHeight.value}px`;
-    };
-    onBeforeMount(() => {
-       window.addEventListener('resize', handleResize);
-    });
-    onUnmounted(() => {
-      window.removeEventListener('resize', handleResize);
-    });
-    return {
-      data
-    }
-  }
 }
 </script>
 

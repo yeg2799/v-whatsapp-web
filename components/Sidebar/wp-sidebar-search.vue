@@ -1,6 +1,6 @@
 <template lang="pug">
   .sidebar-search
-    wp-text-field
+    wp-text-field(icon="search")
 </template>
 
 <script>

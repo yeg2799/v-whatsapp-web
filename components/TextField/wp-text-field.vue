@@ -1,14 +1,19 @@
 <template lang="pug">
   .text-field
-    .text-field-icon
-      SvgSprite(icon="search")
+    .text-field-icon(v-if="icon")
+      SvgSprite(:icon="icon")
     .text-field-input
       input(type="text" placeholder="Aratın veya yeni bir sohbet başlatın")
 </template>
 
 <script>
 export default {
-
+  props: {
+    icon: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
