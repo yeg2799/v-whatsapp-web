@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { onMounted, ref, useContext, watch, onUnmounted } from '@nuxtjs/composition-api';
+import { onMounted, ref, useContext, watch, onUnmounted, onBeforeMount } from '@nuxtjs/composition-api';
 import WpSidebar from '@/components/Sidebar/wp-sidebar.vue';
 export default {
   components: {
@@ -15,18 +15,30 @@ export default {
   },
   setup(props, context) {
     const data = ref('emre');
-    const height = ref(0);
+    const heigt = ref(0);
+    const contentBodyHeight = ref(0);
+
     const handleResize = () => {
+      console.log('resize');
       const sidebarHeader = document.getElementsByClassName('header')[0];
       const sidebarNotification = document.getElementsByClassName('sidebar-notification')[0];
       const sidebarSearch = document.getElementsByClassName('sidebar-search')[0];
+      const personList = document.getElementsByClassName('sidebar-person-list')[0];
       const sumHeight = sidebarHeader.clientHeight + sidebarNotification.clientHeight + sidebarSearch.clientHeight;
 
-      height.value = window.innerHeight - sumHeight;
-      const personList = document.getElementsByClassName('sidebar-person-list')[0];
-      personList.style.maxHeight = `${height.value}px`;
+      heigt.value = window.innerHeight - sumHeight;
+
+      // const contentHeader = document.getElementsByClassName('content-header')[0];
+      // const contentBody = document.getElementsByClassName('content-body')[0];
+      // const contentSendMessage = document.getElementsByClassName('content-send-message')[0];
+      // const heigt = contentHeader.clientHeight + contentSendMessage.clientHeight;
+      // contentBodyHeight.value = window.innerHeight - heigt;
+
+      personList.style.maxHeight = `${heigt.value}px`;
+      // contentBody.style.maxHeight = `${contentBodyHeight.value}px`;
+      // contentBody.style.height = `${contentBodyHeight.value}px`;
     };
-    onMounted(() => {
+    onBeforeMount(() => {
        window.addEventListener('resize', handleResize);
     });
     onUnmounted(() => {
@@ -76,6 +88,7 @@ export default {
 .layout {
   display: flex;
   width: 100%;
+  height: 100%;
   color: #fff;
   overflow-y: hidden;
   .left-content {
