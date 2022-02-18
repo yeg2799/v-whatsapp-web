@@ -80,7 +80,8 @@ export default {
   overflow-y: hidden;
   .left-content {
     width: 30%;
-    border-right: 1px solid #e6e6e6;
+    border-right: 1px solid #3A4A4F;
+
   }
   .right-content {
     width: 70%;
