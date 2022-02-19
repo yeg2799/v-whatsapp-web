@@ -8,7 +8,7 @@
     .sidebar-messages-list(v-for="a in 10" :key="a")
       .sidebar-messages-person-wrapper
         .sidebar-messages-person-image
-          wp-image-card(preset="avatar" src="avatar.jpeg")
+          wp-image-card(preset="avatar" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png")
         .sidebar-messages-info
           .sidebar-messages-person-name
             span Emre

@@ -2,7 +2,7 @@
   .content-header
     .content-header-left
       .content-header-left-image
-        wp-image-card(preset="avatar" src="avatar.jpeg")
+        wp-image-card(preset="avatar" src="https://st2.depositphotos.com/3557671/11164/v/950/depositphotos_111644750-stock-illustration-man-avatar-icon-of-vector.jpg")
       .content-header-left-name
         span Berat
     .content-header-right

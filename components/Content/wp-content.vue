@@ -1,7 +1,7 @@
 <template lang="pug">
   .content-body
     .content-background
-      wp-image-card(src="wp-bg.png")
+      wp-image-card(src="https://i.redd.it/xsd14fpxa7l41.jpg")
 </template>
 
 <script>
