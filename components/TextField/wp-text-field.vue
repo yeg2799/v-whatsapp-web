@@ -3,7 +3,7 @@
     .text-field-icon(v-if="icon")
       SvgSprite(:icon="icon")
     .text-field-input
-      input(type="text" placeholder="Aratın veya yeni bir sohbet başlatın")
+      input(type="text" :placeholder="placeholder")
 </template>
 
 <script>
@@ -12,6 +12,10 @@ export default {
     icon: {
       type: Boolean,
       default: false
+    },
+    placeholder: {
+      type: String,
+      default: ''
     }
   }
 }
@@ -34,7 +38,6 @@ export default {
       width: 100%;
       input {
         width: 100%;
-        // height: 35px;
         border: none;
         background: transparent;
         color: #8696a0;

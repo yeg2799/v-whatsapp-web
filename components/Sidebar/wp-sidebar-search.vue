@@ -1,6 +1,6 @@
 <template lang="pug">
   .sidebar-search
-    wp-text-field(icon="search")
+    wp-text-field(icon="search" placeholder="Aratın veya yeni bir sohbet başlatın")
 </template>
 
 <script>
