@@ -3,6 +3,8 @@
     wp-content-header
     wp-content
     wp-content-send-message
+  //- .is-not-content
+  //-   span Telefonunuzu bağlı tutun
 </template>
 
 <script>
